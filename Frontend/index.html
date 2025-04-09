@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      animation: slideUp 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+
+    .login-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .login-box h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .login-box p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .login-box input:focus {
+      border-color: #66a6ff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(102, 166, 255, 0.5);
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background: #66a6ff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background: #4f91f7;
+    }
+
+    .error {
+      margin-top: 10px;
+      color: red;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 20px;
+      }
+
+      .login-box h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1 style="text-align: center; padding-top: 0px; padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;">Zithara.AI <br>Virtuval Shopping Assistant</h1>
+    <form id="loginForm" class="login-box">
+      <h2>Welcome Back</h2>
+      <p>Please log in to continue</p>
+
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p class="error" id="errorMsg"></p>
+    </form>
+    <footer style="padding-top: 30px; padding-bottom: 0px; margin-bottom: 0px; margin-top: 30px;">
+      <p style="text-align: center;">Devloped by <a href="https://www.linkedin.com/in/maheswaram-subrahmanyam-361238275/">Maheswaram Subrahmanyam</a> </p>
+    </footer>
+  </div>
+  
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (username === "admin" && password === "admin123") {
+        window.location.href = "admin.html"; // You can change this to your admin panel
+      } else if (username === "user" && password === "user123") {
+        window.location.href = "https://luminous-hotteok-a45fa1.netlify.app/"; // User dashboard
+      } else {
+        errorMsg.textContent = "Invalid credentials! Try again.";
+      }
+    });
+  </script>
+</body>
+</html>
